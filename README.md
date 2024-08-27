@@ -1,1 +1,2 @@
-# PARALLEL VERSION (Rust + MPI)
+# PARALLEL VERSION (Rust + MPI): non-containerized / monolithic
+
