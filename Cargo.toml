@@ -1,0 +1,8 @@
+[package]
+name = "version_1"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mpi = { version = "0.8.0", features = ["user-operations", "derive"] }
+rand = "0.8.5"
