@@ -1,1 +1,2 @@
-# Example_CBHPC-on-Containers
+# PARALLEL VERSION (Rust + MPI): non-containerized / monolithic
+
