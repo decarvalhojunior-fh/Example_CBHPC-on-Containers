@@ -1,3 +1,4 @@
+mod sort2;
 mod sort1;
 mod innerproduct;
 
@@ -23,7 +24,7 @@ fn main() {
                        } 
                        else 
                        { 
-                          sort2(v0, oddness_comm) 
+                          sort2::sort(v0, oddness_comm) 
                        };
 
     let r3 = innerproduct::perform(&v1, world);
@@ -44,9 +45,7 @@ fn create_array<const SIZE: usize>(m: i32, n: i32) -> Vec<i32> {
 }
 
 
-fn sort2<T:Communicator>(v: Vec<i32>, comm: T) -> Vec<i32> {
-    return v;
-} 
+ 
 
 
 
