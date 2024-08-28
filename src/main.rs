@@ -1,4 +1,5 @@
 mod sort1;
+mod innerproduct;
 
 use rand::prelude::*;   
 use mpi::traits::*;
@@ -25,7 +26,7 @@ fn main() {
                           sort2(v0, oddness_comm) 
                        };
 
-    let r3 = innerproduct(&v1, world);
+    let r3 = innerproduct::perform(&v1, world);
 
     for item in v1 {
         println!("rank {rank} -- v1: {item}")
@@ -47,13 +48,5 @@ fn sort2<T:Communicator>(v: Vec<i32>, comm: T) -> Vec<i32> {
     return v;
 } 
 
-fn innerproduct<T:Communicator>(v: &Vec<i32>, comm: T) -> i32 {
-    let mut r = 0;
 
-    for i in 0..v.len()-1 {
-        r += v[i]*v[i];
-    }
-
-    return r
-}
 
