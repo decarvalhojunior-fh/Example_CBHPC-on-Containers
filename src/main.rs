@@ -1,5 +1,5 @@
-mod sort2;
-mod sort1;
+mod prefixsum;
+mod sort;
 mod innerproduct;
 
 use rand::prelude::*;   
@@ -17,14 +17,16 @@ fn main() {
     assert!(oddness_comm.is_some());
     let oddness_comm = oddness_comm.unwrap();
     
-    let v0: Vec<i32> = create_array::<128>(1,32) ;
+    
 
     let v1 = if rank % 2 == 0 { 
-                          sort1::sort(v0, oddness_comm) 
+                          let v0: Vec<i32> = create_array::<128>(0,31) ;
+                          sort::perform(v0, oddness_comm) 
                        } 
                        else 
                        { 
-                          sort2::sort(v0, oddness_comm) 
+                          let v0: Vec<i32> = create_array::<128>(0,7) ;
+                          prefixsum::perform(v0, oddness_comm) 
                        };
 
     let r3 = innerproduct::perform(&v1, world);
@@ -35,6 +37,8 @@ fn main() {
 
     println!("rank {rank} -- inner product = {r3}")
 }
+
+
 
 fn create_array<const SIZE: usize>(m: i32, n: i32) -> Vec<i32> {
     let mut arr = vec![0; SIZE];

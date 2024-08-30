@@ -3,7 +3,7 @@ use mpi::Count;
 use mpi::datatype::{PartitionMut, Partition};
 
 
-pub fn sort<T:Communicator>(v: Vec<i32>, comm: T) -> Vec<i32> {
+pub fn perform<T:Communicator>(v: Vec<i32>, comm: T) -> Vec<i32> {
 
     let v_size = v.len();
 
